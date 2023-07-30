@@ -33,7 +33,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-    min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 }
@@ -88,10 +87,11 @@ select {
 
 body{
     display: flex;
+    flex-direction: column;
     font-family: 'Poppins', sans-serif;
     background: var(--Very_Light_Gray);
     font-size: var(--font);
-    margin: 4rem 0;
+    margin: 4rem;
 }
 
 h1{
@@ -135,20 +135,17 @@ p{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
 }
 
 .main_section .first_section, .second_section, .third_section, .forth_section{
-    padding: 2rem;
-    width: 80%;
+    padding: 3rem;
     background: white;
     border-radius: 0.5rem;
-    margin: 0 auto;
     box-shadow: 0px 10px 40px 5px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    height: 16rem;
 }
 
 .main_section h1{
@@ -170,7 +167,6 @@ p{
 .second_section { 
     grid-area: 1 / 2 / 2 / 3;
     border-top: 4px solid var(--Red);
-    margin-bottom: 2rem;
 }
 
 .third_section { 
@@ -188,4 +184,35 @@ p{
 .image{
     display: flex;
     justify-content: end;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 700px) {
+    body{
+        margin: 1.5rem;
+    }
+    .header_section h1{
+        font-size: 1.5rem;
+    }
+    .main_section{
+        display: flex;
+        flex-direction: column;
+    }
+    .main_section .first_section, .second_section, .third_section, .forth_section{
+        margin-bottom: 1rem;
+    }
+
+    .first_section, .forth_section{
+        position: static;
+    }
+
+    .main_section p{
+        margin-bottom: 0;
+    }
+
+    .header_section p{
+        max-width: 90%;
+        margin: 0 auto;
+    }
 }
